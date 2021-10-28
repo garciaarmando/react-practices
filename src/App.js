@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import Componente from "./components/Componente";
 import "./App.css";
 import Propiedades from "./components/Propiedades";
+import Estado from "./components/Estado";
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
               <Componente msg="I'm a component passed as a prop to another component" />
             }
           />
+          <hr />
+          <Estado />
         </section>
       </header>
     </div>
