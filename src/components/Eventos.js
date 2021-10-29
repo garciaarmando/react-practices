@@ -72,3 +72,35 @@ export class EventosES7 extends Component {
     );
   }
 }
+
+const ButtonMadeComponent = ({ personalizedOnClick }) => (
+  <button onClick={personalizedOnClick}>Button made component</button>
+);
+export class MasSobreEventos extends Component {
+  handleClick = (e, msg) => {
+    console.log("Hello!");
+    console.log(e.nativeEvent);
+    console.log(e.nativeEvent.target);
+    console.log(e);
+    console.log(e.target);
+    console.log(msg);
+  };
+  render() {
+    return (
+      <div>
+        <h2>More about events</h2>
+        <button
+          onClick={e => this.handleClick(e, "Hello, params from an event")}>
+          Saludar
+        </button>
+
+        {/* Personalized event => Create a prop and pass it to the component, then you can assign that prop and make it works*/}
+        <ButtonMadeComponent
+          personalizedOnClick={e =>
+            this.handleClick(e, "Hello, from a button made component")
+          }
+        />
+      </div>
+    );
+  }
+}
