@@ -56,7 +56,11 @@ const CrudApp = () => {
     setDB([...db, data]);
   };
 
-  const updateData = data => {};
+  const updateData = data => {
+    let newData = db.map(el => (el.id === data.id ? data : el));
+
+    setDB(newData);
+  };
 
   const deleteData = id => {};
 
