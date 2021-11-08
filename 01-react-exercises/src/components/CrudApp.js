@@ -48,11 +48,32 @@ const initialDB = [
 
 const CrudApp = () => {
   const [db, setDB] = useState(initialDB);
+  const [dataToEdit, setDataToEdit] = useState(null);
+
+  const createData = data => {
+    data.id = Date.now();
+    // console.log(data);
+    setDB([...db, data]);
+  };
+
+  const updateData = data => {};
+
+  const deleteData = id => {};
+
   return (
     <div>
       <h2>CRUD App</h2>
-      <CrudForm />
-      <CrudTable data={db} />
+      <CrudForm
+        createData={createData}
+        updateData={updateData}
+        dataToEdit={dataToEdit}
+        setDataToEdit={setDataToEdit}
+      />
+      <CrudTable
+        data={db}
+        setDataToEdit={setDataToEdit}
+        deleteData={deleteData}
+      />
     </div>
   );
 };

@@ -5,21 +5,35 @@ const initialForm = {
   diameter: "",
   id: null,
 };
-const CrudForm = () => {
+const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
   const [form, setForm] = useState(initialForm);
 
   const handleChange = e => {
-    console.log("Change");
+    setForm({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleSubmit = e => {
-    e.preventDefaul();
-    console.log("Submit");
+    e.preventDefault();
+    if (!form.name || !form.diameter) {
+      alert("Incomplete Data");
+      return;
+    }
+
+    if (form.id === null) {
+      createData(form);
+    } else {
+      updateData(form);
+    }
+
+    handleReset();
   };
 
   const handleReset = e => {
-    e.preventDefault();
-    console.log("Reset");
+    setForm(initialForm);
+    setDataToEdit(null);
   };
 
   return (
