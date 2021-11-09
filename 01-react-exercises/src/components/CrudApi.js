@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import CrudForm from "./CrudForm";
 import { CrudTable } from "./CrudTable";
 
-const initialDB = [
+/* const initialDB = [
   {
     id: 1,
     name: "Mercury",
@@ -44,10 +44,10 @@ const initialDB = [
     name: "Neptune",
     diameter: "49244 km",
   },
-];
+]; */
 
-const CrudApp = () => {
-  const [db, setDB] = useState(initialDB);
+export const CrudApi = () => {
+  const [db, setDB] = useState([]);
   const [dataToEdit, setDataToEdit] = useState(null);
 
   const createData = data => {
@@ -94,5 +94,3 @@ const CrudApp = () => {
     </div>
   );
 };
-
-export default CrudApp;
