@@ -16,10 +16,10 @@ export const useFetch = url => {
         const res = await fetch(url);
 
         if (!res.ok) {
-          let err = new Error("Fetch has failed");
-          err.status = res.status || "00";
-          err.statusText = res.statusText || "An error has ocurred";
-          throw err;
+          let error = new Error("Fetch has failed");
+          error.status = res.status || "00";
+          error.statusText = res.statusText || "An error has ocurred";
+          throw error;
         }
 
         const json = await res.json();
@@ -28,10 +28,10 @@ export const useFetch = url => {
           setData(json);
           setError(null);
         }
-      } catch (err) {
+      } catch (error) {
         if (!signal.abort) {
           setData(null);
-          setError(err);
+          setError(error);
         }
       } finally {
         if (!signal.abort) {

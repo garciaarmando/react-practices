@@ -6,6 +6,9 @@ const NestedSelects = () => {
   const [town, setTown] = useState("");
   const [suburb, setSuburb] = useState("");
 
+  const TOKEN =
+    "77f0a365-d4b1-48d7-a149-1b08170e076"; /* "77f0a365-d4b1-48d7-a149-1b08170e0769"; */
+
   return (
     <div>
       <h2>Nested Selects</h2>
@@ -13,7 +16,7 @@ const NestedSelects = () => {
 
       <SelectList
         title="estado"
-        url=""
+        url={`https://api.copomex.com/query/get_estados?token=${TOKEN}`}
         handleChange={e => {
           setState(e.target.value);
         }}
@@ -21,8 +24,10 @@ const NestedSelects = () => {
 
       {state && (
         <SelectList
-          title="town"
-          url=""
+          title="municipios"
+          url={`https://api.copomex.com/query/get_municipio_por_estado/${state}?token=${TOKEN}
+
+`}
           handleChange={e => {
             setTown(e.target.value);
           }}
@@ -31,8 +36,8 @@ const NestedSelects = () => {
 
       {town && (
         <SelectList
-          title="suburb"
-          url=""
+          title="colonia"
+          url={`https://api.copomex.com/query/get_colonia_por_municipio/${town}?token=${TOKEN}`}
           handleChange={e => {
             setSuburb(e.target.value);
           }}
