@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useForm } from "../hooks/useForm";
+import { Loader } from "./Loader";
+import { Message } from "./Message";
 
 const initialForm = {
   name: "",
@@ -62,55 +64,61 @@ const ContactForm = () => {
   return (
     <div>
       <h2>Contact Form</h2>
-      <form onSubmit={handleSubmit}></form>
-      <input
-        type="text"
-        name="name"
-        placeholder="Write your name"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.name}
-        required
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Write your name"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={form.name}
+          required
+        />
 
-      {errors.name && <p style={styles}>{errors.name}</p>}
+        {errors.name && <p style={styles}>{errors.name}</p>}
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Write your email"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.email}
-        required
-      />
+        <input
+          type="email"
+          name="email"
+          placeholder="Write your email"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={form.email}
+          required
+        />
 
-      {errors.email && <p style={styles}>{errors.email}</p>}
+        {errors.email && <p style={styles}>{errors.email}</p>}
 
-      <input
-        type="text"
-        name="subject"
-        placeholder="Subject to handle"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.subject}
-        required
-      />
+        <input
+          type="text"
+          name="subject"
+          placeholder="Subject to handle"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={form.subject}
+          required
+        />
 
-      {errors.subject && <p style={styles}>{errors.subject}</p>}
+        {errors.subject && <p style={styles}>{errors.subject}</p>}
 
-      <textarea
-        name="comments"
-        cols="50"
-        rows="5"
-        placeholder="Please, write your comment"
-        onBlur={handleBlur}
-        onChange={handleChange}
-        value={form.comments}></textarea>
+        <textarea
+          name="comments"
+          cols="50"
+          rows="5"
+          placeholder="Please, write your comment"
+          onBlur={handleBlur}
+          onChange={handleChange}
+          value={form.comments}></textarea>
 
-      {errors.comments && <p style={styles}>{errors.comments}</p>}
+        {errors.comments && <p style={styles}>{errors.comments}</p>}
 
-      <input type="submit" value="Send" />
+        <input type="submit" value="Send" />
+      </form>
+
+      {loading && <Loader />}
+      {response && (
+        <Message msg="Data have sent successfully" bgColor="#198754" />
+      )}
     </div>
   );
 };
