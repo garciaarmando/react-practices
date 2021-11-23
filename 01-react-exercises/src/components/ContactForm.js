@@ -11,9 +11,36 @@ const initialForm = {
 const validationsForm = form => {
   let errors = {};
 
+  let regexName =
+    /^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u;
+
+  let regexEmail =
+    /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  let regexComments = /^.{1,255}$/;
+
   if (!form.name.trim()) {
     errors.name = "The 'name' field is required";
+  } else if (!regexName.test(form.name.trim())) {
+    errors.name = "The 'name' field only accepts letters and blanks";
   }
+
+  if (!form.email.trim()) {
+    errors.email = "The 'Email' field is required";
+  } else if (!regexEmail.test(form.email.trim())) {
+    errors.email =
+      "Please, introduce a valid email format, for example: someone@something.com";
+  }
+
+  if (!form.subject.trim()) {
+    errors.subject = "The 'Subject' field is required";
+  }
+
+  if (!form.comments.trim()) {
+    errors.comments = "The 'Comments' field is required";
+  } else if (!regexComments.test(form.comments.trim())) {
+    errors.comments = "The 'Comments' field is limited to 255 characters";
+  }
+
   return errors;
 };
 
