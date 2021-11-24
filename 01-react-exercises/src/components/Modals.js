@@ -2,6 +2,7 @@
 import { useModal } from "../hooks/useModal";
 import ContactForm from "./ContactForm";
 import Modal from "./Modal";
+import ModalPortal from "./ModalPortal";
 import SongSearch from "./SongSearch";
 
 const Modals = () => {
@@ -10,6 +11,8 @@ const Modals = () => {
   const [isOpenModalContact, openModalContact, closeModalContact] =
     useModal(false);
   const [isOpenSongSearch, openSongSearch, closeSongSearch] = useModal(false);
+  const [isOpenModalPortal, openModalPortal, closeModalPortal] =
+    useModal(false);
 
   return (
     <div>
@@ -37,6 +40,16 @@ const Modals = () => {
       <Modal isOpen={isOpenSongSearch} closeModal={closeSongSearch}>
         <SongSearch />
       </Modal>
+
+      <button onClick={openModalPortal}>Portals</button>
+      <ModalPortal isOpen={isOpenModalPortal} closeModal={closeModalPortal}>
+        <h3>Modals with Portals</h3>
+        <p>
+          This is the content of a modal that loads in another DOM node besides
+          the id "root". This is possible because the use of React Portal
+        </p>
+        <img src="https://placeimg.com/400/400/tech" alt="Tech" />
+      </ModalPortal>
     </div>
   );
 };
