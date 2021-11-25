@@ -9,3 +9,21 @@ html {
 *::before {
     box-sizing: inherit;
 }
+
+a {
+    margin-right: 1rem;
+    margin-left: 0.5rem;
+}
+
+hr {
+    margin: 2rem;
+}
+
+li {
+    margin-bottom: 1rem;
+}
+
+.activated {
+    font-weight: bold;
+    color: #61dafb;
+}
