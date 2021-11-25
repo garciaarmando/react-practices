@@ -1,26 +1,23 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import Home from "../pages/Home";
 
 const BasicsConcepts = () => {
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h3>Home</h3> <p>Welcome to react Router</p>
-            </>
-          }
-        />
+        <Route path="/" element={<Home />} />
       </Routes>
 
       <Routes>
-        <Route path="/about" element={<h3>About</h3>} />
+        <Route path="/about" element={<About />} />
       </Routes>
 
       <Routes>
-        <Route path="/contact" element={<h3>Contact</h3>} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </Router>
   );
