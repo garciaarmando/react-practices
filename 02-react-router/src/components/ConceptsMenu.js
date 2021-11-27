@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { BrowserRouter as Router, Link, NavLink } from "react-router-dom";
 
 const ConceptsMenu = () => {
