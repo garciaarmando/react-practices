@@ -5,6 +5,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
+import User from "../pages/User";
 import ConceptsMenu from "./ConceptsMenu";
 
 const BasicsConcepts = () => {
@@ -17,6 +18,7 @@ const BasicsConcepts = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/user/:username" element={<User />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

@@ -42,6 +42,11 @@ const ConceptsMenu = () => {
             Error 404
           </NavLink>
         </li>
+        <li>
+          <span>useParams</span>
+          <Link to="/user/armandopsi">armandopsi</Link>
+          <Link to="/user/rambo">rambo</Link>
+        </li>
       </ol>
     </nav>
   );
