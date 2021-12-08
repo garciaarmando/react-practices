@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  Navigate,
+} from "react-router-dom";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Error404 from "../pages/Error404";
@@ -19,6 +25,8 @@ const BasicsConcepts = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/user/:username" element={<User />} />
+          <Route path="/acerca" element={<Navigate to="/about" />} />
+          <Route path="/contacto" element={<Navigate to="/contact" />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>

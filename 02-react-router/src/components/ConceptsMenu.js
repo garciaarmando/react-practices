@@ -7,21 +7,19 @@ const ConceptsMenu = () => {
       <ol>
         <li>
           <span>
-            HTML links (not recommended due the entire application re-render)
+            HTML links(not recommended due the entire application re - render)
           </span>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/contact">Contact</a>
+          <a href="/"> Home </a> <a href="/about"> About </a>
+          <a href="/contact"> Contact </a>
         </li>
         <li>
-          <span>Link Component (without re-render)</span>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="contact">Contact</Link>
-          <Link to="/no-place">Error 404</Link>
+          <span> Link Component(without re - render) </span>
+          <Link to="/"> Home </Link> <Link to="/about"> About </Link>
+          <Link to="contact"> Contact </Link>
+          <Link to="/no-place"> Error 404 </Link>
         </li>
         <li>
-          <span>NavLink Component</span>
+          <span> NavLink Component </span>
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? " activated" : "")}>
@@ -44,9 +42,13 @@ const ConceptsMenu = () => {
           </NavLink>
         </li>
         <li>
-          <span>useParams</span>
-          <Link to="/user/armandopsi">armandopsi</Link>
-          <Link to="/user/rambo">rambo</Link>
+          <span> useParams </span>
+          <Link to="/user/armandopsi"> armandopsi </Link>
+          <Link to="/user/rambo"> rambo </Link>
+        </li>
+        <li>
+          <span> Redirect </span> <Link to="/acerca"> Acerca </Link>
+          <Link to="/contacto"> Contacto </Link>
         </li>
       </ol>
     </nav>
