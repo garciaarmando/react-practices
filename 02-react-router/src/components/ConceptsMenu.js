@@ -47,8 +47,13 @@ const ConceptsMenu = () => {
           <Link to="/user/rambo"> rambo </Link>
         </li>
         <li>
-          <span> Redirect </span> <Link to="/acerca"> Acerca </Link>
+          <span> Redirect </span>
+          <Link to="/acerca"> Acerca </Link>
           <Link to="/contacto"> Contacto </Link>
+        </li>
+        <li>
+          <span>Nested Routes</span>
+          <Link to="/react">React Docs</Link>
         </li>
       </ol>
     </nav>
