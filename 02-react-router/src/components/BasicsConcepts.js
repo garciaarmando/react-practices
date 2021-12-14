@@ -12,8 +12,12 @@ import Contact from "../pages/Contact";
 import Error404 from "../pages/Error404";
 import Home from "../pages/Home";
 import { ReactTopics } from "../pages/ReactTopics";
+import JSXInfo from "../pages/JSXInfo";
 import User from "../pages/User";
 import ConceptsMenu from "./ConceptsMenu";
+import PropsInfo from "../pages/Props";
+import StateInfo from "../pages/State";
+import ComponentsInfo from "../pages/Components";
 
 const BasicsConcepts = () => {
   return (
@@ -28,7 +32,16 @@ const BasicsConcepts = () => {
           <Route path="/user/:username" element={<User />} />
           <Route path="/acerca" element={<Navigate to="/about" />} />
           <Route path="/contacto" element={<Navigate to="/contact" />} />
-          <Route path="/react" element={<ReactTopics />} />
+
+          {/* Nested Routes */}
+          <Route path="react" element={<ReactTopics />}>
+            <Route path=":jsx" element={<JSXInfo />} />
+            <Route path=":props" element={<PropsInfo />} />
+            <Route path=":state" element={<StateInfo />} />
+            <Route path=":components" element={<ComponentsInfo />} />
+          </Route>
+
+          {/* Not found route */}
           <Route path="*" element={<Error404 />} />
         </Routes>
       </Router>
