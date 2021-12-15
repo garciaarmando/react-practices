@@ -1,6 +1,21 @@
-import { memo } from "react";
+import { memo, useMemo } from "react";
 
 const ContadorChild = ({ contador, sumar, restar }) => {
+  /* let superNum = 0;
+
+  for (let i = 0; i < 1000000000; i++) {
+    superNum++;
+  } */
+
+  const superNum = useMemo(() => {
+    let num = 0;
+
+    for (let i = 0; i < 1000000000; i++) {
+      num++;
+    }
+
+    return num;
+  }, []);
   console.log("Children of component counter re-rendered");
 
   return (
@@ -16,6 +31,7 @@ const ContadorChild = ({ contador, sumar, restar }) => {
         <button onClick={sumar}>+</button>
         <button onClick={restar}>-</button>
       </nav>
+      <h3>{superNum}</h3>
     </div>
   );
 };

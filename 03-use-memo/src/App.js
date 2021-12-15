@@ -33,8 +33,6 @@ function App() {
         <li>You have performance alerts in the console</li>
       </ul>
 
-      <Contador />
-
       <hr />
 
       <h4>
@@ -60,6 +58,7 @@ function App() {
           Always that you give a function like a parameter of an useEffect
         </li>
       </ul>
+
       <hr />
 
       <h4>
@@ -67,7 +66,17 @@ function App() {
           useMemo
         </a>
       </h4>
+      <ul>
+        <li>Memoriza a calculated value, that is, the result of a function</li>
+        <li>It generates computed properties</li>
+      </ul>
+      <h4>Use it when:</h4>
+      <ul>
+        <li>On heavy process that requires complex calculations</li>
+      </ul>
       <hr />
+
+      <Contador />
     </div>
   );
 }
