@@ -1,15 +1,28 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import ContadorChild from "./ContadorChild";
 
 const Contador = () => {
   const [contador, setContador] = useState(0);
+  const [input, setInput] = useState("");
 
-  const sumar = () => {
+  /*    const sumar = () => {
     setContador(contador + 1);
   };
 
   const restar = () => {
     setContador(contador - 1);
+  }; */
+
+  const sumar = useCallback(() => {
+    setContador(contador + 1);
+  }, [contador]);
+
+  const restar = useCallback(() => {
+    setContador(contador - 1);
+  }, [contador]);
+
+  const handleInpunt = e => {
+    setInput(e.target.value);
   };
 
   return (
@@ -24,8 +37,9 @@ const Contador = () => {
       </nav>
 
       <h3>{contador}</h3>
+      <input type="text" onChange={handleInpunt} value={input} />
 
-      <ContadorChild />
+      <ContadorChild contador={contador} sumar={sumar} restar={restar} />
     </div>
   );
 };

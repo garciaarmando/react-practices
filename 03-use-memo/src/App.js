@@ -38,18 +38,35 @@ function App() {
       <hr />
 
       <h4>
-        <a href="https://es.reactjs.org/docs/hooks-reference.html#usememo">
-          useMemo
-        </a>
-      </h4>
-      <hr />
-
-      <h4>
         <a href="https://es.reactjs.org/docs/hooks-reference.html#usecallback">
           useCallback
         </a>
       </h4>
+      <ul>
+        <li>
+          You can use it to memorize functions, this will avoid to re-define
+          that functions in every render of the component due a change of it's
+          state variables.
+        </li>
+      </ul>
+      <h4>Use it when:</h4>
+      <ul>
+        <li>
+          Everytime when you are <b>passing a function like a prop</b> to a
+          memorized component. Remember to encapsule the functions passed like a
+          prop into a useCallback expression.
+        </li>
+        <li>
+          Always that you give a function like a parameter of an useEffect
+        </li>
+      </ul>
+      <hr />
 
+      <h4>
+        <a href="https://es.reactjs.org/docs/hooks-reference.html#usememo">
+          useMemo
+        </a>
+      </h4>
       <hr />
     </div>
   );
