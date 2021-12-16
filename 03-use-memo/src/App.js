@@ -67,7 +67,7 @@ function App() {
         </a>
       </h4>
       <ul>
-        <li>Memoriza a calculated value, that is, the result of a function</li>
+        <li>Memorize a calculated value, that is, the result of a function</li>
         <li>It generates computed properties</li>
       </ul>
       <h4>Use it when:</h4>
