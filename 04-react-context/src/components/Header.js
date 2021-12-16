@@ -1,9 +1,9 @@
-const Header = ({ handleTheme, theme }) => {
+const Header = ({ handleLanguage, handleTheme, texts, theme }) => {
   return (
     <header className={theme}>
-      <h2>App without contextAPI</h2>
-      <h3>Header</h3>
-      <select name="languaje">
+      <h2>{texts.headerTitle}</h2>
+      <h3>{texts.headerSubtitle}</h3>
+      <select name="languaje" onChange={handleLanguage}>
         <option value="es">ES</option>
         <option value="en">EN</option>
       </select>
@@ -14,7 +14,7 @@ const Header = ({ handleTheme, theme }) => {
         onClick={handleTheme}
         value="light"
       />
-      <label htmlFor="light">🌞</label>
+      <label htmlFor="light">{texts.headerLight}</label>
       <input
         type="radio"
         name="theme"
@@ -22,8 +22,11 @@ const Header = ({ handleTheme, theme }) => {
         onClick={handleTheme}
         value="dark"
       />
-      <label htmlFor="dark">🌚</label>
-      <button>Log In</button>
+      <label htmlFor="dark">{texts.headerDark}</label>
+      <button>
+        {texts.buttonLogin}
+        {texts.buttonLogout}
+      </button>
     </header>
   );
 };
