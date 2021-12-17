@@ -5,7 +5,7 @@ import Main from "./Main";
 
 const initialTheme = "light";
 const initialLanguage = "es";
-
+const initialAuth = null;
 const translations = {
   es: {
     headerTitle: "Mi aplicación sin ContextAPI",
@@ -37,6 +37,7 @@ const MyPage = () => {
   const [theme, setTheme] = useState(initialTheme);
   const [language, setLanguage] = useState(initialLanguage);
   const [texts, setTexts] = useState(translations[language]);
+  const [auth, setAuth] = useState(initialAuth);
 
   const handleTheme = e => {
     console.log(e.target.value);
@@ -60,16 +61,26 @@ const MyPage = () => {
     }
   };
 
+  const handleAuth = e => {
+    if (auth) {
+      setAuth(null);
+    } else {
+      setAuth(true);
+    }
+  };
+
   return (
     <div className="my-page">
       <Header
-        theme={theme}
+        auth={auth}
+        handleAuth={handleAuth}
         handleLanguage={handleLanguage}
         handleTheme={handleTheme}
         texts={texts}
+        theme={theme}
       />
-      <Main theme={theme} texts={texts} />
-      <Footer theme={theme} texts={texts} />
+      <Main auth={auth} texts={texts} theme={theme} />
+      <Footer texts={texts} theme={theme} />
     </div>
   );
 };

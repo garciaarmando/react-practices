@@ -1,4 +1,11 @@
-const Header = ({ handleLanguage, handleTheme, texts, theme }) => {
+const Header = ({
+  auth,
+  handleAuth,
+  handleLanguage,
+  handleTheme,
+  texts,
+  theme,
+}) => {
   return (
     <header className={theme}>
       <h2>{texts.headerTitle}</h2>
@@ -23,9 +30,8 @@ const Header = ({ handleLanguage, handleTheme, texts, theme }) => {
         value="dark"
       />
       <label htmlFor="dark">{texts.headerDark}</label>
-      <button>
-        {texts.buttonLogin}
-        {texts.buttonLogout}
+      <button onClick={handleAuth}>
+        {auth ? texts.buttonLogout : texts.buttonLogin}
       </button>
     </header>
   );
