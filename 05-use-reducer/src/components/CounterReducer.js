@@ -1,36 +1,30 @@
 import { useReducer } from "react";
 
-const initialState = { count: 0 };
+const initialState = { contador: 0 };
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "increase":
-      return { count: state.count + 1 };
-    case "decrease":
-      return { count: state.count - 1 };
+    case "INCREMENT":
+      return { contador: state.contador + 1 };
+    case "DECREMENT":
+      return { contador: state.contador - 1 };
     default:
       return state;
   }
 };
 
 const CounterReducer = () => {
-  // const [count, setCount] = useState(0);
-  //dispatch = setCount function in useState
+  // const [contador, setContador] = useState(0);
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  // const increase = e => setCount(count + 1);
-  const increase = e => dispatch({ type: "increase" });
-  // const decrease = e => setCount(count - 1);
-  const decrease = e => dispatch({ type: "decrease" });
-
+  const sumar = () => dispatch({ type: "INCREMENT" });
+  const restar = () => dispatch({ type: "DECREMENT" });
   return (
     <div style={{ textAlign: "center" }}>
-      <h2>Counter with useReducer</h2>
-      <nav>
-        <button onClick={increase}>+</button>
-        <button onClick={decrease}>-</button>
-      </nav>
-      <h3>{state.count}</h3>
+      <h3>Counter with useReducer</h3>
+      <button onClick={sumar}>+</button>
+      <button onClick={restar}>-</button>
+      <p>{state.contador}</p>
     </div>
   );
 };
