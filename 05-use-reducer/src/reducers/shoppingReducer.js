@@ -7,12 +7,12 @@ export const shoppingInitialState = {
     { id: 3, name: "Series X HE", price: 725 },
     { id: 4, name: "Dell UltraWide", price: 822 },
     { id: 5, name: "WiFi Mesh", price: 145 },
-    { id: 6, name: "Samsung QN90A", price: 1700 },
+    { id: 6, name: "Smart TV Samsung QN90A", price: 1700 },
   ],
   cart: [],
 };
 
-export const shoppingReucer = (state, action) => {
+export const shoppingReducer = (state, action) => {
   switch (action.type) {
     case TYPES.ADD_TO_CART: {
     }
