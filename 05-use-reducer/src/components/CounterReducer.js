@@ -2,6 +2,10 @@ import { useReducer } from "react";
 
 const initialState = { contador: 0 };
 
+const init = initialState => {
+  return { contador: initialState.contador + 100 };
+};
+
 const TYPES = {
   INCREMENT_5: "INCREMENT_5",
   INCREMENT: "INCREMENT",
@@ -30,7 +34,7 @@ const reducer = (state, action) => {
 
 const CounterReducer = () => {
   // const [contador, setContador] = useState(0);
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState, init);
 
   const sumar5 = () => dispatch({ type: TYPES.INCREMENT_5, payload: 5 });
 
