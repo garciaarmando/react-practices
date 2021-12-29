@@ -3,7 +3,9 @@ import {
   shoppingInitialState,
   shoppingReducer,
 } from "../reducers/shoppingReducer";
+import CartItem from "./CartItem";
 import ProductItem from "./ProductItem";
+import { TYPES } from "../actions/shoppingActions";
 
 const ShoppingCart = () => {
   const [state, dispatch] = useReducer(shoppingReducer, shoppingInitialState);
@@ -11,7 +13,8 @@ const ShoppingCart = () => {
   const { products, cart } = state;
 
   const addToCart = id => {
-    console.log(id);
+    // console.log(id);
+    dispatch({ type: TYPES.ADD_TO_CART, payload: id });
   };
 
   const delFromCart = () => {};
@@ -28,7 +31,14 @@ const ShoppingCart = () => {
         ))}
       </article>
       <h3>Cart 🛒</h3>
-      <article className="box"></article>
+      <article className="box">
+        {/*  */}
+        <button onClick={clearCart}>Clean cart</button>
+
+        {cart.map((item, index) => (
+          <CartItem key={index} data={item} delFromCart={delFromCart} />
+        ))}
+      </article>
     </div>
   );
 };
