@@ -1,0 +1,29 @@
+{
+  "planets": [
+    {
+      "id": 1,
+      "name": "Mercury",
+      "diameter": "4879.4 km"
+    },
+    {
+      "id": 2,
+      "name": "Venus",
+      "diameter": "12104 km"
+    },
+    {
+      "id": 3,
+      "name": "Earth",
+      "diameter": "12742 km"
+    },
+    {
+      "name": "Mars",
+      "diameter": "6779 km",
+      "id": 1636671345939
+    },
+    {
+      "name": "Jupiter",
+      "diameter": "139820 km",
+      "id": 1636671350820
+    }
+  ]
+}
