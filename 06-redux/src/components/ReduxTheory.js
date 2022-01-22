@@ -1,3 +1,4 @@
+import React from "react";
 import reduxImg from "../assets/reduxworkflow.png";
 
 const ReduxTheory = () => {
