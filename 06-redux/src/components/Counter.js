@@ -1,12 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
-  DECREMENT,
-  DECREMENT_5,
-  INCREMENT,
-  INCREMENT_5,
-  RESET,
-} from "../types";
+  reset,
+  restar,
+  restar5,
+  sumar,
+  sumar5,
+} from "../actions/contadorActions";
 
 const Counter = () => {
   const state = useSelector(state => state);
@@ -14,13 +14,23 @@ const Counter = () => {
 
   return (
     <div>
-      <h2>Redux Counter</h2>
+      <h2> Redux Counter </h2>
       <nav>
-        <button onClick={() => dispatch(INCREMENT_5())}>+5</button>
-        <button onClick={() => dispatch(INCREMENT())}>+1</button>
-        <button onClick={() => dispatch(RESET())}>Reset 0</button>
-        <button onClick={() => dispatch(DECREMENT_5())}>-5</button>
-        <button onClick={() => dispatch(DECREMENT())}>-1</button>
+        <button onClick={() => dispatch(sumar5())}>+5</button>
+        <button onClick={() => dispatch(sumar())}>+1</button>
+        <button onClick={() => dispatch(reset())}>0</button>
+        <button
+          onClick={() => {
+            dispatch(restar());
+          }}>
+          -1
+        </button>
+        <button
+          onClick={() => {
+            dispatch(restar5());
+          }}>
+          -5
+        </button>
       </nav>
       <h3>{state.contador}</h3>
     </div>
